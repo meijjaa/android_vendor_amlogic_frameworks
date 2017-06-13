@@ -15,8 +15,11 @@ LOCAL_MODULE:= digtest
 
 LOCAL_FORCE_STATIC_EXECUTABLE := true
 
-LOCAL_STATIC_LIBRARIES := libcutils libc\
-	libcrypto_static \
+LOCAL_STATIC_LIBRARIES := \
+	libcutils \
+	libc \
+	libcrypto_utils_static \
+	libcrypto_static  \
 	libext4_utils_static \
 	libsparse_static \
 	libz\
@@ -48,8 +51,12 @@ LOCAL_C_INCLUDES += system/extras/ext4_utils \
                     system/core/fs_mgr/include \
                     system/core/include/sysutils
 
-LOCAL_SHARED_LIBRARIES := libcutils libc\
+LOCAL_SHARED_LIBRARIES := \
+        libcutils \
+        libc \
+        libcrypto_utils \
         libcrypto \
+        libext2_blkid \
         libext4_utils \
         libsparse \
         libz\
@@ -57,10 +64,11 @@ LOCAL_SHARED_LIBRARIES := libcutils libc\
         libsysutils \
         libbase
 
-LOCAL_STATIC_LIBRARIES:= libvold \
+LOCAL_STATIC_LIBRARIES:= \
+        libvold \
         libfs_mgr \
         libfec \
-	      libfec_rs \
+        libfec_rs \
         liblogwrap \
         libmincrypt \
         libsquashfs_utils
